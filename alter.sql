@@ -1,0 +1,21 @@
+-- Active: 1708971529087@@127.0.0.1@5432@ph
+
+SELECT * FROM person2;
+
+ALTER TABLE person2
+    ADD COLUMN name VARCHAR(25) DEFAULT 'Default Name' NOT NULL;
+
+ALTER TABLE person2
+    DROP COLUMN name;
+
+ALTER TABLE person2
+    RENAME COLUMN age TO user_age;
+
+ALTER TABLE person2
+    ALTER COLUMN user_name TYPE VARCHAR(50);
+
+ALTER TABLE person2
+    ALTER COLUMN user_age SET NOT NULL;
+
+ALTER TABLE person2
+    ALTER COLUMN user_age DROP NOT NULL;
