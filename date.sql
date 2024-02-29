@@ -17,3 +17,19 @@ SELECT CURRENT_TIME;
 SELECT NOW()::date;
 SELECT NOW()::time;
 
+SELECT to_char(NOW(), 'yyyy-mm-dd');
+
+SELECT CURRENT_DATE - INTERVAL '1 year';
+
+SELECT age(CURRENT_DATE, '03-11-1999');
+
+SELECT *, age(CURRENT_DATE, dob) FROM students;
+
+SELECT extract(YEAR FROM '03-01-1999'::date);
+
+SELECT extract(MONTH FROM '03-01-1999'::date);
+
+SELECT extract(DAY FROM '03-01-1999'::date);
+
+SELECT 'Y'::BOOLEAN;
+
