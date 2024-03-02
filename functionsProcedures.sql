@@ -39,3 +39,31 @@ CREATE or replace Function delete_emp_by_id(p_emp_id int)
     $$;
 
 SELECT delete_emp_by_id(28);
+
+
+CREATE Procedure remove_emp(p_emp_id int)
+    LANGUAGE plpgsql
+    AS
+    $$
+        BEGIN
+            DELETE FROM employees WHERE employee_id = p_emp_id;
+        END
+    $$;
+
+CALL remove_emp(30);
+
+CREATE or REPLACE Procedure remove_emp_var(p_emp_id int)
+    LANGUAGE plpgsql
+    AS
+    $$
+        DECLARE
+        test_var int;
+        BEGIN
+            SELECT employee_id INTO test_var FROM employees WHERE employee_id = p_emp_id;
+            DELETE FROM employees WHERE employee_id = test_var;
+
+            RAISE NOTICE 'Employee removed successfully!';
+        END
+    $$;
+
+call remove_emp_var(22);
